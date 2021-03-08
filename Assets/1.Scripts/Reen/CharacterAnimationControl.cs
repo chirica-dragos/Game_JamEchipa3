@@ -21,5 +21,6 @@ public class CharacterAnimationControl : MonoBehaviour
         else if
            (Input.GetAxis("Horizontal") > 0)
             gameObject.GetComponent<Transform>().rotation = new Quaternion(0f, 0f, 0f, 0f);
+        CharacterAnimationController.SetFloat("InputDetection", Mathf.Abs(Input.GetAxis("Horizontal")));
     }
 }
