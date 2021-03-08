@@ -23,7 +23,7 @@ public class CharacterMovement : MonoBehaviour
     //Controller of jump velocity
     public float JumpImpulse;
 
-    private bool Grounded = false;
+    public bool Grounded = false;
 
     #endregion
 

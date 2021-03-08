@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Reen 8/3/2021 Created the script.
+
+
+
+
+
 public class CameraFollowAndBehavior : MonoBehaviour
 {
     void Update()
