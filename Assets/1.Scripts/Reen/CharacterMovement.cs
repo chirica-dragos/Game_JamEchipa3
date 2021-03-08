@@ -22,6 +22,7 @@ public class CharacterMovement : MonoBehaviour
     private bool StopMovement = false;
     //Controller of jump velocity
     public float JumpImpulse;
+    public float FlightSpeedLimit;
 
     public bool Grounded = false;
 
@@ -62,8 +63,15 @@ public class CharacterMovement : MonoBehaviour
             Grounded = false;
             playerAvatar.AddForce(new Vector2(0f, JumpImpulse));
         }
+
+        if (playerAvatar.velocity.x > FlightSpeedLimit && Grounded == false)
+            playerAvatar.velocity = new Vector2(FlightSpeedLimit, playerAvatar.velocity.y);
+        else if (playerAvatar.velocity.x < -FlightSpeedLimit && Grounded == false)
+            playerAvatar.velocity = new Vector2(-FlightSpeedLimit, playerAvatar.velocity.y);
         #endregion
     }
+
+
     #region MISCELLANEOUS
     private void OnTriggerStay2D(Collider2D collision)
     {
