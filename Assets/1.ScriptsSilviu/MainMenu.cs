@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
     public GameObject achievementsbutton;
     public GameObject screamer;
     public GameObject loadgame;
+    public GameObject sunet;
 
 
     int numaratorApasariButonStart = 0;
@@ -31,6 +32,12 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(2);
         screamer.SetActive(false);
         }
+    IEnumerator SmashGlass()
+    {
+        sunet.SetActive(true);
+        yield return new WaitForSeconds(0.9f);
+        sunet.SetActive(false);
+    }
     public void loadButton()
     {
 
@@ -38,11 +45,16 @@ public class MainMenu : MonoBehaviour
 
     public void achievementsButton()
     {
-        if(script.canClickButtons == 1 && numaratorApasariButonAchievements == 0)
+        if(script.canClickButtons == 0 )
+        {
+            StartCoroutine(SmashGlass());
+        }
+        else if(script.canClickButtons == 1 && numaratorApasariButonAchievements == 0)
         {
             achievementsbutton.transform.position = new Vector3(333, 86,0);
             numaratorApasariButonAchievements++;
-           
+            sunet.SetActive(true);
+
         }
         else
              if (script.canClickButtons == 1 && numaratorApasariButonAchievements == 1)
@@ -109,7 +121,11 @@ public class MainMenu : MonoBehaviour
 
     public void startButton()
     {
-        if (script.canClickButtons == 1 && numaratorApasariButonStart == 0)
+        if (script.canClickButtons == 0)
+        {
+            StartCoroutine(SmashGlass());
+        }
+        else if(script.canClickButtons == 1 && numaratorApasariButonStart == 0)
         {
 
             
@@ -180,7 +196,11 @@ public class MainMenu : MonoBehaviour
     
     public void optionsButton() {
 
-        if(script.canClickButtons == 1 && numaratorApasariButonOptions == 0)
+        if (script.canClickButtons == 0)
+        {
+            StartCoroutine(SmashGlass());
+        }
+        else if(script.canClickButtons == 1 && numaratorApasariButonOptions == 0)
         {
             optionsbutton.transform.position = new Vector3(570, 400, 0);
             numaratorApasariButonOptions++;
