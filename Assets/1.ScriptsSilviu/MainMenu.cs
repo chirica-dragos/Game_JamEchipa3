@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -144,7 +145,7 @@ public class MainMenu : MonoBehaviour
         if (script.canClickButtons == 1 && numaratorApasariButonStart == 4)
         {
 
-            Debug.Log("felicitari, ai apasat pe buton");
+            
             butonstart.transform.position = new Vector3(460, 350, 0);
             numaratorApasariButonStart++;
         }
@@ -160,9 +161,20 @@ public class MainMenu : MonoBehaviour
         if (script.canClickButtons == 1 && numaratorApasariButonStart == 6)
         {
 
-            Debug.Log("felicitari, ai apasat pe buton");
+            
+            
+            butonstart.transform.position = new Vector3(1623, 835, 0);
+            numaratorApasariButonStart++;
+
+        }
+        else
+        if (script.canClickButtons == 1 && numaratorApasariButonStart == 7)
+        {
+
+            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             butonstart.transform.position = new Vector3(246, 905, 0);
-            numaratorApasariButonStart = 0;
+            
         }
     }
     
